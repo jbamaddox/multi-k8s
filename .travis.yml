@@ -13,9 +13,7 @@ after_success:
   - docker build -t jeremybamaddox/multi-nginx ./nginx
   - docker build -t jeremybamaddox/multi-server ./server
   - docker build -t jeremybamaddox/multi-worker ./worker
-  #log in to docker CLI
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  #take images and put them to docker hub
+  - echo \"\$DOCKER_PASSWORD\" | docker login -u \"\$DOCKER_ID\" --password-stdin
   - docker push jeremybamaddox/multi-client
   - docker push jeremybamaddox/multi-nginx
   - docker push jeremybamaddox/multi-server
